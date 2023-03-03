@@ -3,8 +3,8 @@ import { fetchImages } from './services/api';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Loader } from 'components/Loader/Loader';
-import { Button } from 'components/Button/Button';
 import { Modal } from 'components/Modal/Modal';
+import { Button } from 'components/Button/Button';
 
 export function App() {
   const [query, setQuery] = useState('');
