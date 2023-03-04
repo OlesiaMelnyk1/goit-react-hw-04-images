@@ -23,11 +23,11 @@ export function App() {
       try {
         setIsLoading(true);
         const { hits, totalHits } = await fetchImages(query, page);
+        setImages(prevState => [...prevState, ...hits]);
+        setShowLoadMoreButton(page < Math.ceil(totalHits / 12));
         if (hits.length === 0) {
           return alert('Nothing found for your request. Please, try again');
         }
-        setImages(prevState => [...prevState, ...hits]);
-        setShowLoadMoreButton(page < Math.ceil(totalHits / 12));
       } catch (error) {
         setError(error.message);
       } finally {
@@ -47,7 +47,7 @@ export function App() {
   };
 
   const loadMorePictures = () => {
-    setPage(prevState => prevState.page + 1);
+    setPage(prevState => prevState + 1);
   };
 
   const handleModal = () => {
